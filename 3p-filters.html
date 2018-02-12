@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>uBlock — Filter lists</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/dashboard-common.css">
+<link rel="stylesheet" type="text/css" href="css/cloud-ui.css">
+<link rel="stylesheet" type="text/css" href="css/3p-filters.css">
+</head>
+
+<body>
+
+<div id="cloudWidget" class="hide" data-cloud-entry="tpFiltersPane"></div>
+
+<div>
+    <ul id="options">
+        <li><button id="buttonUpdate" class="custom important disabled" data-i18n="3pUpdateNow">Update</button>
+            <button id="buttonPurgeAll" class="custom disabled" data-i18n="3pPurgeAll">Cancel</button>
+            <button id="buttonApply" class="custom important disabled" data-i18n="3pApplyChanges">Apply</button>
+        <li><input type="checkbox" id="autoUpdate"><label data-i18n="3pAutoUpdatePrompt1" for="autoUpdate">Auto Update Filters</label>&ensp;
+    </ul>
+    <p><span id="listsOfBlockedHostsPrompt"></span></p>
+    <ul id="lists">
+	<li class="groupEntry" data-groupkey="default"><span class="geName"></span> <span class="geCount dim"></span>
+            <ul class="listEntries"><li class="listEntry" data-listkey="user-filters">
+            <input type="checkbox"><!--
+         --><a class="content" type="text/html" target="_blank" href="asset-viewer.html?url=user-filters">My filters</a>​<!--
+         --><a class="fa support" href="" target="_blank"></a>​<!--
+         --><a class="fa remove" href="" target="_blank"></a>​<!--
+         --><a class="fa mustread" href="" target="_blank"></a>​<!--
+         --><span class="fa status unsecure" title="http"></span>​<!--
+         --><span class="counts dim">1 used out of 1</span>​<!--
+         --><span class="fa status obsolete" title="Out of date."></span>​<!--
+         --><span class="fa status cache"></span>​<!--
+         --><span class="fa status updating" title="Updating..."></span>​<!--
+         --><span class="fa status failed" title="A network error prevented the resource from being updated."></span>
+            </li><li class="listEntry support cached" data-listkey="ublock-filters">
+            <input type="checkbox"><!--
+         --><a class="content" type="text/html" target="_blank" href="asset-viewer.html?url=ublock-filters">Filter A</a>​<!--
+         --><a class="fa support" href="https://github.com/uBlockOrigin/uAssets/issues" target="_blank" title="github.com"></a>​<!--
+         --><a class="fa remove" href="" target="_blank"></a>​<!--
+         --><a class="fa mustread" href="" target="_blank"></a>​<!--
+         --><span class="fa status unsecure" title="http"></span>​<!--
+         --><span class="counts dim">3,879 used out of 3,908</span>​<!--
+         --><span class="fa status obsolete" title="Out of date."></span>​<!--
+         --><span class="fa status cache" title="Last update: an hour ago.
+Click to force an update."></span>​<!--
+         --><span class="fa status updating" title="Updating..."></span>​<!--
+         --><span class="fa status failed" title="A network error prevented the resource from being updated."></span>
+            </li><li class="listEntry obsolete" data-listkey="ublock-annoyances">
+            <input type="checkbox"><!--
+         --><a class="content" type="text/html" target="_blank" href="asset-viewer.html?url=ublock-annoyances">Filter B</a>​<!--
+         --><a class="fa support" href="" target="_blank"></a>​<!--
+         --><a class="fa remove" href="" target="_blank"></a>​<!--
+         --><a class="fa mustread" href="" target="_blank"></a>​<!--
+         --><span class="fa status unsecure" title="http"></span>​<!--
+         --><span class="counts dim"></span>​<!--
+         --><span class="fa status obsolete" title="Out of date."></span>​<!--
+         --><span class="fa status cache"></span>​<!--
+         --><span class="fa status updating" title="Updating..."></span>​<!--
+         --><span class="fa status failed" title="A network error prevented the resource from being updated."></span>
+            </li><li class="listEntry support mustread cached" data-listkey="ublock-badware">
+            <input type="checkbox"><!--
+         --><a class="content" type="text/html" target="_blank" href="asset-viewer.html?url=ublock-badware">Filter C</a>​<!--
+         --><a class="fa support" href="https://github.com/gorhill/uBlock/wiki/Badware-risks" target="_blank" title="github.com"></a>​<!--
+         --><a class="fa remove" href="" target="_blank"></a>​<!--
+         --><a class="fa mustread" href="https://github.com/gorhill/uBlock/wiki/Badware-risks" target="_blank"></a>​<!--
+         --><span class="fa status unsecure" title="http"></span>​<!--
+         --><span class="counts dim">7 used out of 7</span>​<!--
+         --><span class="fa status obsolete" title="Out of date."></span>​<!--
+         --><span class="fa status cache" title="Last update: an hour ago.
+Click to force an update."></span>​<!--
+         --><span class="fa status updating" title="Updating..."></span>​<!--
+         --><span class="fa status failed" title="A network error prevented the resource from being updated."></span>
+            </li>
+            </li></ul>
+			</ul>
+</div>
+
+<div id="externalListsDiv">
+    <p>
+        <span data-i18n="3pExternalListsHint" style="margin: 0 0 0.25em 0; font-size: 13px;">Custom External Lists</span>
+        <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Filter-lists-from-around-the-web" target="_blank">&#xf05a;</a>
+        <textarea id="externalLists" dir="ltr" spellcheck="false"></textarea>
+    </div>
+
+<div id="templates" style="display: none;">
+    <ul>
+        <li class="groupEntry"><span class="geName"></span> <span class="geCount dim"></span>
+            <ul class="listEntries"></ul>
+            </li>
+        <li class="listEntry">
+            <input type="checkbox"><!--
+         --><a class="content" type="text/plain" target="_blank" href=""></a>&#8203;<!--
+         --><a class="fa support" href="" target="_blank">&#xf015;</a>&#8203;<!--
+         --><a class="fa remove" href="">&#xf014;</a>&#8203;<!--
+         --><a class="fa mustread" href="" target="_blank">&#xf05a;</a>&#8203;<!--
+         --><span class="fa status unsecure" title="http">&#xf13e;</span>&#8203;<!--
+         --><span class="counts dim"></span>&#8203;<!--
+         --><span class="fa status obsolete" title="3pExternalListObsolete">&#xf071;</span>&#8203;<!--
+         --><span class="fa status cache">&#xf017;</span>&#8203;<!--
+         --><span class="fa status updating" title="3pUpdating">&#xf110;</span>&#8203;<!--
+         --><span class="fa status failed" title="3pNetworkError">&#xf127;</span>
+            </li>
+        </ul>
+    </div>
+
+<script src="js/vapi.js"></script>
+<script src="js/vapi-common.js"></script>
+<script src="js/vapi-client.js"></script>
+<script src="js/udom.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/dashboard-common.js"></script>
+<script src="js/cloud-ui.js"></script>
+<script src="js/3p-filters.js"></script>
+
+</body>
+</html>
